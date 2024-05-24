@@ -1,0 +1,55 @@
+/* Login.css */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #676767; /* Изменена обводка */
+  border-radius: 5px;
+  text-align: center; /* Центрирование содержимого */
+  background-color: #3F3E3E; /* Фон контейнера */
+  
+}
+
+h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: white; /* Цвет текста */
+}
+
+.input-login {
+  margin-bottom: 10px;
+  width: 75%; /* Ширина поля ввода */
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #676767;
+  border-radius: 5px;
+  background-color: #3F3E3E;
+  color: white;
+  display: block; /* Делает элемент блочным */
+  margin: 10px auto; /* Центрирование */
+}
+
+.button {
+  width: 80%; /* Установлено для совпадения с шириной поля ввода */
+  padding: 10px;
+  font-size: 16px;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  display: block; /* Делает элемент блочным */
+  margin: 10px auto; /* Центрирование */
+}
+
+/*.button:hover {
+  background-color: #0056b3;
+}*/
+
+.link {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  font-size: 16px;
+  color: #007bff;
+  text-decoration: none;
+}

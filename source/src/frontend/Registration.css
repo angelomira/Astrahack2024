@@ -1,0 +1,52 @@
+/* Registration.css */
+.container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #676767; /* Изменена обводка */
+  border-radius: 5px;
+  text-align: center; /* Центрирование содержимого */
+  background-color: #3F3E3E; /* Фон контейнера */
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .input-regist {
+    margin-bottom: 10px;
+    width: 75%;
+    padding: 10px;
+    font-size: 16px;
+    border: 2px solid #676767;
+    border-radius: 5px;
+    background-color: #3F3E3E;
+    color: white; /* Изменение цвета текста на белый */
+    position: center;
+  }
+  
+  button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #10a37e85;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #10a37ec1;
+  }
+  
+  .link {
+    display: block;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 16px;
+    color: #28a745;
+    text-decoration: none;
+  }
+  
