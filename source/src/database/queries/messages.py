@@ -41,7 +41,7 @@ async def add_new_message(data, sender_id) -> bool:
 
 async def get_messages(sender_id: int, receiver_id: int, count: int) -> List[Dict[str, str]]:
     async with async_session_factory() as session:
-        query = select(MessagesOrm.content, MessagesOrm.timestamp).filter(
+        query = select(MessagesOrm.sender_id, MessagesOrm.receiver_id, MessagesOrm.content, MessagesOrm.timestamp).filter(
             or_(
                 (MessagesOrm.sender_id == sender_id) & (MessagesOrm.receiver_id == receiver_id),
                 (MessagesOrm.sender_id == receiver_id) & (MessagesOrm.receiver_id == sender_id)
@@ -50,7 +50,10 @@ async def get_messages(sender_id: int, receiver_id: int, count: int) -> List[Dic
         result = await session.execute(query)
         messages = result.fetchall()
     # Преобразование результата в список словарей
-    messages_list = [{"content": msg.content, "timestamp": datetime.datetime.utcfromtimestamp(msg.timestamp).strftime('%d-%m-%Y %H:%M:%S UTC')} for msg in messages]
+    messages_list = [{"sender_id": msg.sender_id,
+                      "receiver_id": msg.receiver_id,
+                      "content": msg.content,
+                      "timestamp": datetime.datetime.utcfromtimestamp(msg.timestamp).strftime('%d-%m-%Y %H:%M:%S UTC')} for msg in messages]
     return messages_list
 
 # async def get_level(session: AsyncSession, user_id: int) -> int:

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import time
+from typing import List, Dict
 
 from fastapi import Depends
 from fastapi_users.db import SQLAlchemyUserDatabase
@@ -58,6 +59,16 @@ async def user_exists_by_id(user_id: str) -> bool:
 
     user = result.scalar_one_or_none()
     return bool(user)
+
+
+async def get_users(count: int) -> List[Dict[str, str]]:
+    async with async_session_factory() as session:
+        query = select(User.id, User.username).limit(count)
+        result = await session.execute(query)
+        messages = result.fetchall()
+    # Преобразование результата в список словарей
+    users_list = [{"id": user.id, "username": user.username} for user in messages]
+    return users_list
 
 
 async def get_user_db(session: AsyncSession = Depends(get_async_session)):
